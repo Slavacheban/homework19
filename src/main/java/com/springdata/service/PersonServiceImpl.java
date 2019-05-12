@@ -30,7 +30,12 @@ public class PersonServiceImpl implements PersonService {
 
     @Override
     public PersonEntity findPersonById(Long id) {
-        return repository.findById(id).get();
+        if (repository.findById(id).get()!=null) {
+            return repository.findById(id).get();
+        }
+        else {
+            throw new IllegalArgumentException();
+        }
     }
 
     @Override
