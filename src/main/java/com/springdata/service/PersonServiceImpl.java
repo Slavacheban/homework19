@@ -30,7 +30,7 @@ public class PersonServiceImpl implements PersonService {
 
     @Override
     public PersonEntity findPersonById(Long id) {
-        if (repository.findById(id).get()!=null) {
+        if (repository.findById(id).isPresent()) {
             return repository.findById(id).get();
         }
         else {

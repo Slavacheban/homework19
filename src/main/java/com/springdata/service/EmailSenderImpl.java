@@ -1,5 +1,6 @@
 package com.springdata.service;
 
+import com.springdata.exceptions.SomeException;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -27,6 +28,7 @@ public class EmailSenderImpl implements EmailSender {
             helper.setText(body);
             this.emailSender.send(message);
         } catch (MessagingException e) {
+            throw new SomeException(e.getMessage());
         }
     }
 }

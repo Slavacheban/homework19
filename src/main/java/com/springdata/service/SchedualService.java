@@ -29,6 +29,7 @@ public class SchedualService {
                 String message = "Happy Birthday dear " + personEntity.getName() + "!";
                 emailSender.send(personEntity.getEmail(), "Happy Birthday!", message);
             } catch (Exception e) {
+                log.info(e.getMessage());
             }
         });
     }
